@@ -1,0 +1,1 @@
+ACL_OBJECT_TILE("sakhal","x1_z9",{"types":[["","dz\\water_sakhal\\ice_sea\\ice_sea_piece_5.p3d","object"],["","dz\\water_sakhal\\ice_sea\\ice_sea_piece_8.p3d","object"]],"v":[],"o":[0,10203,607,-176,10289,703,10136,715,10121,516,10274,504,-6,26,1,10215,1054,54,10065,1059,10176,910,10363,1048,10252,1198,-10,17]});

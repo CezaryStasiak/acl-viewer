@@ -1,0 +1,1 @@
+ACL_OBJECT_TILE("sakhal","x14_z12",{"types":[["Land_MooringBuoy","dz\\structures_sakhal\\industrial\\harbour\\mooringbuoy.p3d","building"]],"v":[],"o":[0,555,444,0,531,422,579,422,579,469,531,469,-28,39,0,533,5755,0,510,5733,557,5733,557,5780,510,5780,-28,39]});

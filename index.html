@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advance Combat Logging Viewer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Advance Combat Logging <span>Viewer</span></h1>
+  <label class="btn">Open kill files…<input id="fileInput" type="file" accept=".json,application/json" multiple hidden></label>
+  <span id="loadStatus" class="muted">Drop kill_*.json files anywhere</span>
+  <div class="spacer"></div>
+  <div class="layers" id="layers">
+    <label><input type="checkbox" data-layer="terrain" checked>Terrain</label>
+    <label title="Terrain map brightness"><input type="range" id="mapBright" min="20" max="160" value="100" style="width:70px"></label>
+    <label><input type="checkbox" data-layer="grid" checked>Grid</label>
+    <label><input type="checkbox" data-layer="trails" checked>Trails</label>
+    <label><input type="checkbox" data-layer="futureTrails">Future path</label>
+    <label><input type="checkbox" data-layer="aim" checked>Aim</label>
+    <label><input type="checkbox" data-layer="shots" checked>Shots</label>
+    <label><input type="checkbox" data-layer="allShots">All shots</label>
+    <label><input type="checkbox" data-layer="hits" checked>Hits</label>
+    <label><input type="checkbox" data-layer="los" checked>LOS</label>
+    <label><input type="checkbox" data-layer="ai" checked>Zombies/animals</label>
+    <label><input type="checkbox" data-layer="aiTrails">AI trails</label>
+    <label><input type="checkbox" data-layer="objects" checked>Buildings</label>
+    <label><input type="checkbox" data-layer="vegetation" checked>Trees</label>
+    <label><input type="checkbox" data-layer="doors" checked>Doors</label>
+    <label><input type="checkbox" data-layer="labels" checked>Labels</label>
+    <label title="Length of shot rays that did not hit anyone">Ray <input type="number" id="shotLen" value="150" min="10" max="2000" step="10"> m</label>
+  </div>
+</header>
+
+<main>
+  <section id="mapWrap">
+    <canvas id="map"></canvas>
+    <div id="tooltip" hidden></div>
+    <div id="empty">
+      <p><strong>No kill loaded.</strong></p>
+      <p>Open or drop <code>kill_*.json</code> files written by the DayZ Advance Combat Logging mod.</p>
+      <p class="muted">Your files are read in this browser only — nothing is uploaded.</p>
+    </div>
+    <div id="mapHelp" class="muted">drag = pan · wheel = zoom · F = fit · space = play · ←/→ = step</div>
+  </section>
+
+  <aside id="side">
+    <div class="tabs">
+      <button data-tab="kills" class="active">Kills</button>
+      <button data-tab="info">Kill</button>
+      <button data-tab="players">Players</button>
+      <button data-tab="events">Events</button>
+    </div>
+    <div class="tab" id="tab-kills"><div id="killList"></div></div>
+    <div class="tab" id="tab-info" hidden>
+      <div id="killInfo"></div>
+      <h3>Flags <span class="muted">(reasons to review, not proof)</span></h3>
+      <div id="flags"></div>
+      <h3>Legend</h3>
+      <div id="legend"></div>
+    </div>
+    <div class="tab" id="tab-players" hidden><div id="playerList"></div></div>
+    <div class="tab" id="tab-events" hidden>
+      <div class="eventFilters">
+        <label><input type="checkbox" data-ev="shot" checked>Shots</label>
+        <label><input type="checkbox" data-ev="hit" checked>Hits</label>
+        <label><input type="checkbox" data-ev="state" checked>State</label>
+      </div>
+      <div id="eventList"></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div id="transport">
+    <button id="playBtn" class="btn" title="Play / pause (space)">▶</button>
+    <select id="speed" title="Playback speed">
+      <option value="0.1">0.1×</option>
+      <option value="0.25">0.25×</option>
+      <option value="0.5">0.5×</option>
+      <option value="1" selected>1×</option>
+      <option value="2">2×</option>
+      <option value="4">4×</option>
+    </select>
+    <span id="timeLabel" class="mono">—</span>
+    <span id="wallLabel" class="muted mono"></span>
+  </div>
+  <canvas id="timeline"></canvas>
+  <canvas id="charts"></canvas>
+</footer>
+
+<script>window.KILLCAM_VIEWER_ONLY = true;</script>
+<script src="names.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

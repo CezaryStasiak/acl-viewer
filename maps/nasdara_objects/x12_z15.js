@@ -1,0 +1,1 @@
+ACL_OBJECT_TILE("nasdara","x12_z15",{"types":[["Static_rock_sand_wallh2","dz\\rocks_takistan\\rock_sand_wallh2.p3d","rock"],["Static_rock_sand_wallh3","dz\\rocks_takistan\\rock_sand_wallh3.p3d","rock"]],"v":[],"o":[0,279,305,-42,402,-25,396,-17,-36,462,-31,454,5525,5419,1,28,563,-113,251,463,31,803,-55,767,166,426,5496,5534]});
