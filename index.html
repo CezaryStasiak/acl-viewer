@@ -11,26 +11,42 @@
   <h1>Advance Combat Logging <span>Viewer</span></h1>
   <label class="btn">Open kill files…<input id="fileInput" type="file" accept=".json,application/json" multiple hidden></label>
   <span id="loadStatus" class="muted">Drop kill_*.json files anywhere</span>
-  <div class="spacer"></div>
   <div class="layers" id="layers">
-    <label><input type="checkbox" data-layer="terrain" checked>Terrain</label>
-    <label title="Terrain map brightness"><input type="range" id="mapBright" min="20" max="160" value="100" style="width:70px"></label>
-    <label><input type="checkbox" data-layer="grid" checked>Grid</label>
-    <label><input type="checkbox" data-layer="trails" checked>Trails</label>
-    <label><input type="checkbox" data-layer="futureTrails">Future path</label>
-    <label><input type="checkbox" data-layer="aim" checked>Aim</label>
-    <label><input type="checkbox" data-layer="shots" checked>Shots</label>
-    <label><input type="checkbox" data-layer="allShots">All shots</label>
-    <label><input type="checkbox" data-layer="hits" checked>Hits</label>
-    <label><input type="checkbox" data-layer="los" checked>LOS</label>
-    <label><input type="checkbox" data-layer="ai" checked>Zombies/animals</label>
-    <label><input type="checkbox" data-layer="aiTrails">AI trails</label>
-    <label><input type="checkbox" data-layer="vehicles" checked>Vehicles</label>
-    <label><input type="checkbox" data-layer="objects" checked>Buildings</label>
-    <label><input type="checkbox" data-layer="vegetation" checked>Trees</label>
-    <label><input type="checkbox" data-layer="doors" checked>Doors</label>
-    <label><input type="checkbox" data-layer="labels" checked>Labels</label>
-    <label title="Length of shot rays that did not hit anyone">Ray <input type="number" id="shotLen" value="150" min="10" max="2000" step="10"> m</label>
+    <fieldset class="layer-group">
+      <legend>Map</legend>
+      <label><input type="checkbox" data-layer="terrain" checked>Terrain</label>
+      <label title="Terrain map brightness"><input type="range" id="mapBright" min="20" max="160" value="100" style="width:70px"></label>
+      <label><input type="checkbox" data-layer="grid" checked>Grid</label>
+      <label><input type="checkbox" data-layer="labels" checked>Labels</label>
+    </fieldset>
+    <fieldset class="layer-group">
+      <legend>World</legend>
+      <label><input type="checkbox" data-layer="objects" checked>Buildings</label>
+      <label><input type="checkbox" data-layer="vegetation" checked>Trees</label>
+      <label><input type="checkbox" data-layer="doors" checked>Doors</label>
+      <label><input type="checkbox" data-layer="vehicles" checked>Vehicles</label>
+    </fieldset>
+    <fieldset class="layer-group">
+      <legend>Players</legend>
+      <label><input type="checkbox" data-layer="trails" checked>Trails</label>
+      <label><input type="checkbox" data-layer="aim" checked>Aim</label>
+      <label><input type="checkbox" data-layer="shots" checked>Shots</label>
+      <label><input type="checkbox" data-layer="allShots">All shots</label>
+      <label title="Length of shot rays that did not hit anyone">Ray <input type="number" id="shotLen" value="150" min="10" max="2000" step="10"> m</label>
+      <label><input type="checkbox" data-layer="hits" checked>Hits</label>
+      <label title="Line of sight"><input type="checkbox" data-layer="los" checked>LOS</label>
+    </fieldset>
+    <fieldset class="layer-group">
+      <legend>Zombies &amp; animals</legend>
+      <label><input type="checkbox" data-layer="ai" checked>Show</label>
+      <label><input type="checkbox" data-layer="aiTrails">Trails</label>
+    </fieldset>
+    <fieldset class="layer-group">
+      <legend>Sounds</legend>
+      <label><input type="checkbox" data-layer="sound" checked>Shots</label>
+      <label><input type="checkbox" data-layer="steps" checked>Footsteps</label>
+      <label><input type="checkbox" data-layer="voice" checked>Voice</label>
+    </fieldset>
   </div>
 </header>
 
@@ -93,6 +109,7 @@
 
 <script>window.KILLCAM_VIEWER_ONLY = true;</script>
 <script src="names.js"></script>
+<script src="weapon_sounds.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
